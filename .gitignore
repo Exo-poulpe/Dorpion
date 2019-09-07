@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/dorpion
+dorpion.so
+dorpion.dylib
+dorpion.dll
+dorpion.a
+dorpion.lib
+dorpion-test-*
+*.exe
+*.o
+*.obj
+*.lst
