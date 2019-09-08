@@ -4,17 +4,16 @@ import dlangui;
 mixin APP_ENTRY_POINT;
 bool TurnCross = true;
 
+	
 
 extern (C) int UIAppMain(string[] args)
 {
-
+	Log.setLogLevel(LogLevel.Fatal);
 
 embeddedResourceList.addResources(embedResourcesFromList!("resources.list")());
 	
-
-
 	Window window = Platform.instance.createWindow("Dorpion", null,
-			!WindowFlag.Resizable , 150, 180);
+			WindowFlag.Resizable , 150, 180);
 
 TableLayout res = new TableLayout("editor_options");
 
@@ -91,15 +90,15 @@ TableLayout res = new TableLayout("editor_options");
 private Window HelpWindow()
 {
 	Window window = Platform.instance.createWindow("Help", null,
-			!WindowFlag.Resizable , 250, 300);
+			!WindowFlag.Resizable , 250, 180);
 
 	TableLayout res = new TableLayout("editor_options");
 	HorizontalLayout line = new HorizontalLayout();
 	EditBox Edit1 = new EditBox("Edit",
 	"Bonjour ce jeu est le jeu du morpion pour 2 joueurs,\nles joueurs peuvent " ~
 	"jouer chacun leur tour en cliquant sur la case qui les interresse,\nbon jeu."d);
-	Edit1.minHeight(300);
 	Edit1.minWidth(300);
+	Edit1.minHeight(150);
 	Edit1.enabled(false);
 	line.addChild(Edit1);
 	HorizontalLayout line2 = new HorizontalLayout();
@@ -115,7 +114,7 @@ private Window HelpWindow()
 	};
 
 	static if (BACKEND_GUI)
-		window.windowIcon = drawableCache.getImage("");
+		window.windowIcon = drawableCache.getImage(null);
 	window.mainWidget = res;
 	return window;
 }

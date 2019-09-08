@@ -13,3 +13,4 @@ dorpion-test-*
 *.o
 *.obj
 *.lst
+*.log
